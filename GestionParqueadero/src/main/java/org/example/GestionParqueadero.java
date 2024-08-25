@@ -15,7 +15,8 @@ public class GestionParqueadero {
             System.out.println("1. Ingresar Vehículo");
             System.out.println("2. Registrar Salida de Vehículo");
             System.out.println("3. Consultar Estado del Parqueadero");
-            System.out.println("4. Salir");
+            System.out.println("4. Generar Reporte Diario");
+            System.out.println("5. Salir");
             int opcion = scanner.nextInt();
             scanner.nextLine();  // Consumir nueva línea
 
@@ -76,6 +77,13 @@ public class GestionParqueadero {
                     break;
 
                 case 4:
+                    System.out.println("Reporte diario de vehículos que han salido:");
+                    for (Vehiculo v : parqueadero.generarReporteDiario()) {
+                        System.out.println("Placa: " + v.getPlaca() + ", Marca: " + v.getMarca() + ", Modelo: " + v.getModelo() + ", Hora de Entrada: " + v.getHoraEntrada());
+                    }
+                    break;
+
+                case 5:
                     System.out.println("Saliendo...");
                     scanner.close();
                     System.exit(0);
